@@ -9,107 +9,89 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Assets</title>
+    <title>Home</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,700,900&display=swap&subset=chinese-simplified" rel="stylesheet">
+    <link rel="stylesheet" href="css/shop_style.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <div id="header">
+        <div class="logo">
+            <a href="#">Logo</a>
+        </div>
+        <nav>
+            <!-- <form class="search" action="search.php">
+                <input name="q" placeholder="Search..." type="search">
+            </form> -->
+            <ul>
+                <li>
+                    <a href="">App Features</a>
+                </li>
+                <li>
+                    <a href="">Assets</a>
+
+                </li>
+                <li class="dropdown">
+                    <a href="">Pricing</a>
+                </li>
+                <li>
+                    <a href="">Community</a>
+                </li>
+                <li>
+                    <a href="">Log In</a>
+                </li>
+                <li>
+                    <a href="">Subscribe</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- top panel -->
     <div class="container">
-        <div class="nav black">
-            <div class="logo">
-                <a href="./index.html">ddfdf</a>
-            </div>
-            <div class="nav_items">
-                <p>Shop</p>
-                <p>How it Works</p>
-                <p>Pricing</p>
-                <p>Community</p>
-            </div>
-            <div class="nav_action">Register</div>
-        </div>
-        <h1>title here</h1>
+        <h1 class="center">title here</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sint ullam doloribus placeat labore veritatis ea dolor consequatur ipsa, consequuntur illo sit voluptate necessitatibus odit nulla inventore recusandae, nisi delectus.</p>
-        <div class="searchbar"></div>
-        <h2>recommend</h2>
-        <div class="carousel">
-            <div class="controlleft">l</div>
-            <div class="controlright">r</div>
-            <div class="card_container">
-                <div id="card_selected" class="card group1">1 sdfdsfdsfsdfdsfdsfsdsdfdsfdsfsdfdsfdsfs</div>
-                <div class="card group1">2</div>
-                <div class="card group1">3</div>
-                <div class="card group1">4</div>
-                <div class="card group1">5</div>
-                <div class="card">6</div>
-                <div class="card">7</div>
-                <div class="card">8</div>
-                <div class="card">9</div>
-                <div class="card">10</div>
+        <div class="searchbar">
+            <input name="q" placeholder="Search asset, category or collection..." type="search">
+            <a href="" class="button primary">Search</a>
+        </div>
+    </div>
+    <!-- featured-->
+    <div class="container">
+        <h2>Featured</h2>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    product1
+                </div>
             </div>
-        </div>
-        <div class="feed">
+            <div class="col">
+                <div class="card">
+                    product1
+                </div>
+            </div>
 
         </div>
     </div>
-    <!-- where the modal is -->
-    <div class="modal hide">
-        <div class="modal_close"></div>
-        <div class="modal_body">
-            yo
-        </div>
+    <!-- categories-->
+    <div class="container">
+        <h2>Popular Categories</h2>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-        //scroll script
-        window.addEventListener("scroll", () => {
-                // console.log(window.pageYOffset);
-                var yOffset = window.pageYOffset;
-                var scrolldistance = 340;
-                //if page off set is larger than 120px, need to add the stick class
-                if (yOffset > scrolldistance) {
-                    document.querySelector(".searchbar").classList.add("stick");
-                } else {
-                    document.querySelector(".searchbar").classList.remove("stick");
-                }
+        //responsive nav
 
-            })
-            //carousel script
-            //clicking on the right button, hide the first group
-        document.querySelector(".controlright").addEventListener("click", () => {
-            document.querySelectorAll(".group1").forEach((e) => {
-                e.classList.add("hide");
-            });
-        });
-        //clicking on the left button, show the first group
-        document.querySelector(".controlleft").addEventListener("click", () => {
+        $('#header').prepend('<div id="menu-icon"><span class="first"></span><span class="second"></span><span class="third"></span></div>');
 
-            document.querySelectorAll(".group1").forEach((e) => {
-                e.classList.remove("hide");
-            });
+        $("#menu-icon").on("click", function() {
+            $("nav").slideToggle();
+            $(this).toggleClass("active");
         });
-        //creat a feed of cards and insert them under ".feed" class
-        const numCard = 20;
-        for (i = 0; i < numCard; i++) {
-            var card = document.createElement("div");
-            card.className = "card";
-            document.querySelector(".feed").appendChild(card);
-        }
-        // console.log(document.querySelector(".feed"));
-        //open a modal window upon clicking on card #1
-        document.querySelector("#card_selected").addEventListener("click", () => {
-                document.querySelector(".modal").classList.remove("hide");
-            })
-            //close the modal window upon clicking on the x
-        document.querySelector(".modal_close").addEventListener("click", () => {
-            document.querySelector(".modal").classList.add("hide");
-        })
     </script>
+    <script src="js/app.js"></script>
 
 </body>
 
