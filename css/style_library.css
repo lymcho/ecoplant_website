@@ -300,9 +300,7 @@ div.controlright {
 
 .card {
     min-width: calc(100% / 5);
-    height: 200px;
     background: #ccc;
-    border: 1px solid #000 padding: 8px;
 }
 
 .hide {

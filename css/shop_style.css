@@ -2,6 +2,7 @@
     --main-color: hotpink;
     --bg-lt-grey: #ededed;
     --bg-black: #101010;
+    --border-grey: #9b9b9b;
     --font-stack: 'Noto Sans SC', sans-serif;
 }
 
@@ -25,11 +26,24 @@ html {
     font-size: 10px;
     background: var(--bg-black);
     font-family: var(--font-stack);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+/* hide scrollbar */
+
+::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
 }
 
 body {
     color: #fff;
     font-size: 1.4rem;
+    margin: 0 7.2rem;
 }
 
 
@@ -47,11 +61,13 @@ a {
 h1 {
     font-size: 4rem;
     font-weight: 400;
+    line-height: 4.8rem;
 }
 
 h2 {
     font-size: 2.4rem;
     font-weight: 400;
+    line-height: 3.2rem;
 }
 
 p {
@@ -92,17 +108,6 @@ p {
     content: "";
     clear: both;
     display: block;
-}
-
-.search {
-    float: left;
-    padding: 30px
-}
-
-input {
-    border: none;
-    padding: 10px;
-    border-radius: 20px
 }
 
 .logo {
@@ -222,6 +227,79 @@ nav li li a:hover {
     transition: all .1s
 }
 
+
+/* hero */
+
+.hero {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    padding: 2.4rem 0 2.4rem 0;
+}
+
+.searchbar {
+    padding: 2rem 0 3.2rem 0;
+    /* background-color: green; */
+    width: 100%;
+    /* margin: 0 auto; */
+    /* padding: 8px; */
+}
+
+#search {
+    height: 40px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-grey);
+}
+
+#search_button {
+    height: 40px;
+    background: var(--bg-black);
+    padding: 0 1.6rem;
+    border-radius: 4px;
+    border: 1px solid white;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.stick {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    animation: searchbar 0.5s ease 0.2 1;
+}
+
+@keyframes searchbar {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* sections */
+
+.section_header {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1.6rem 0 2.4rem 0;
+}
+
+.section_header h1 {
+    margin-right: auto;
+}
+
+.section_header a {
+    margin-left: auto;
+}
+
+
+/* breakpoint desktop is above */
+
 @media only screen and (max-width: 1170px) {
     nav>ul>li>a {
         padding: 35px 15px
@@ -238,6 +316,10 @@ nav li li a:hover {
 /* breakpoint mobile */
 
 @media only screen and (max-width: 959px) {
+    body {
+        margin: 0 1.6rem;
+        /* background: blue; */
+    }
     nav {
         display: none;
         width: 100%;
@@ -264,12 +346,6 @@ nav li li a:hover {
     }
     #menu-icon.active .third {
         display: none
-    }
-    .search {
-        float: none
-    }
-    .search input {
-        width: 100%
     }
     nav {
         padding: 10px
@@ -311,36 +387,73 @@ nav li li a:hover {
     .mega-col {
         width: 100%
     }
-}
-
-.searchbar {
-    background-color: green;
-    width: 320px;
-    margin: 0 auto;
-    height: 56px;
-}
-
-.stick {
-    position: fixed;
-    top: 32px;
-    left: 32px;
-    animation: searchbar 0.5s ease 0.2 1;
-}
-
-@keyframes searchbar {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
+    .hero {
+        width: 100%;
+        margin: 0 auto;
     }
 }
 
 
 /* cards */
 
+.card {}
+
+.card:hover {
+    opacity: 0.4;
+}
+
 
 /* !product card */
 
 
 /* !category card */
+
+
+/* carousel */
+
+.carousel {
+    background: blue;
+    width: 100%;
+    position: relative;
+}
+
+div.controlleft,
+div.controlright {
+    width: 30px;
+    height: 30px;
+    background: #000;
+    /* postition absolute requires its parent to be positioned */
+    position: absolute;
+    top: 50px;
+}
+
+.controlleft {
+    left: 32px;
+}
+
+.controlright {
+    right: 32px;
+}
+
+.card_container {
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.card {
+    width: calc(100% / 5);
+    /* background: #ccc; */
+}
+
+.category_card {
+    width: calc((100% -32px) / 5);
+    padding: 8px;
+    border-radius: 12px;
+    /* background: #ccc; */
+}
+
+.hide {
+    display: none;
+}
